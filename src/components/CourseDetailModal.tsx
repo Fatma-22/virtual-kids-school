@@ -76,6 +76,23 @@ export const CourseDetailModal: React.FC = () => {
             </div>
           </div>
 
+          {(selectedCourse.stage || selectedCourse.language) && (
+            <div className="rounded-2xl border border-cyan-100 bg-cyan-50/60 p-4 space-y-2">
+              {selectedCourse.stage && (
+                <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
+                  <BookOpen className="w-4 h-4 text-cyan-600" />
+                  <span>المرحلة الدراسية: {selectedCourse.stage}</span>
+                </div>
+              )}
+              {selectedCourse.language && (
+                <div className="flex items-center gap-2 text-sm font-bold text-slate-800">
+                  <Sparkles className="w-4 h-4 text-cyan-600" />
+                  <span>اللغة: {selectedCourse.language}</span>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Full Description */}
           <div>
             <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">

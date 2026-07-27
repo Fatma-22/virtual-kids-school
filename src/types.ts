@@ -1,13 +1,15 @@
 export interface Course {
   id: string;
   title: string;
-  category: 'scratch' | 'ai' | 'programming' | 'other';
+  category: 'scratch' | 'ai' | 'programming' | 'ict' | 'other';
   shortDescription: string;
   fullDescription: string;
   image: string;
   ageGroup: string;
   duration: string;
   sessionsCount: string;
+  stage?: string;
+  language?: string;
   features: string[];
   skillsLearned: string[];
   badge?: string;

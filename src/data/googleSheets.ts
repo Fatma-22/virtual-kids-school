@@ -145,17 +145,21 @@ const buildCourses = (rows: Record<string, string>[]) => {
       const features = parseList(row.features || row.featurelist || row.feature_list);
       const skillsLearned = parseList(row.skillslearned || row.skillsLearned || row.skills_learned || row.skills);
       const levels = parseList(row.levels || row.level_list);
+      const stage = row.stage || row.schoolstage || row.schoolStage || row.grade || row.level || '';
+      const language = row.language || row.lang || row.languageofinstruction || row.instructionlanguage || '';
 
       return {
         id: `sheet-course-${Math.random().toString(36).slice(2, 8)}`,
         title: row.title || 'دورة جديدة',
-        category: (category === 'ai' ? 'ai' : category === 'scratch' ? 'scratch' : category === 'programming' ? 'programming' : 'other') as Course['category'],
+        category: (category === 'ai' ? 'ai' : category === 'scratch' ? 'scratch' : category === 'programming' ? 'programming' : category === 'ict' ? 'ict' : 'other') as Course['category'],
         shortDescription: row.shortdescription || row.shortDescription || row.short_description || '',
         fullDescription: row.fulldescription || row.fullDescription || row.full_description || '',
         image: row.image || INITIAL_COURSES[0]?.image || '',
         ageGroup: row.agegroup || row.ageGroup || row.age_group || 'غير محدد',
         duration: row.duration || 'غير محدد',
         sessionsCount: row.sessionscount || row.sessionsCount || row.sessions_count || 'غير محدد',
+        stage: stage || undefined,
+        language: language || undefined,
         badge: row.badge || '',
         popular: popular ?? false,
         levels: levels.length ? levels : undefined,

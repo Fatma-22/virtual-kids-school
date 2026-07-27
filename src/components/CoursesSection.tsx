@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { Course } from '../types';
-import { Sparkles, Clock, Users, BookOpen, ArrowLeft, CheckCircle, Flame, Puzzle, Bot, Code2, Layers } from 'lucide-react';
+import { Sparkles, Clock, Users, BookOpen, ArrowLeft, CheckCircle, Flame, Puzzle, Bot, Monitor, Layers } from 'lucide-react';
 
 export const CoursesSection: React.FC = () => {
   const { courses, openBookingModal, openCourseDetailModal } = useApp();
@@ -11,6 +11,7 @@ export const CoursesSection: React.FC = () => {
     { id: 'all', label: 'جميع البرامج', icon: Sparkles },
     { id: 'scratch', label: 'Scratch للأطفال', icon: Puzzle },
     { id: 'ai', label: 'الذكاء الاصطناعي (AI)', icon: Bot },
+    { id: 'ict', label: 'التكنولوجيا (ICT)', icon: Monitor },
   ];
 
   const filteredCourses = selectedCategory === 'all'
@@ -22,6 +23,7 @@ export const CoursesSection: React.FC = () => {
       case 'scratch': return 'Scratch للأطفال';
       case 'ai': return 'الذكاء الاصطناعي (AI)';
       case 'programming': return 'البرمجة والتطوير';
+      case 'ict': return 'التكنولوجيا (ICT)';
       default: return 'دورة متخصصة';
     }
   };
@@ -107,6 +109,18 @@ export const CoursesSection: React.FC = () => {
                     <Clock className="w-3.5 h-3.5 text-cyan-600" />
                     <span>{course.duration}</span>
                   </div>
+                  {course.stage && (
+                    <div className="flex items-center gap-1 bg-white/70 backdrop-blur-sm border border-white/60 px-2.5 py-1 rounded-xl shadow-xs">
+                      <BookOpen className="w-3.5 h-3.5 text-cyan-600" />
+                      <span>{course.stage}</span>
+                    </div>
+                  )}
+                  {course.language && (
+                    <div className="flex items-center gap-1 bg-white/70 backdrop-blur-sm border border-white/60 px-2.5 py-1 rounded-xl shadow-xs">
+                      <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+                      <span>{course.language}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Course Title */}

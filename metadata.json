@@ -1,0 +1,6 @@
+{
+  "name": "Virtual Kids School",
+  "description": "موقع Virtual Kids School - دورات تعليمية أونلاين للأطفال في Scratch والذكاء الاصطناعي وبرمجة Python",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

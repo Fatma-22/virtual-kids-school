@@ -31,10 +31,10 @@ export const Footer: React.FC = () => {
               href="https://wa.me/201011991431"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:bg-emerald-600 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-4 py-2.5 text-sm font-black text-white shadow-lg shadow-emerald-100 transition-transform hover:scale-[1.02]"
             >
               <MessageCircle className="h-4 w-4" />
-              <span>تحدث مع فريق الدعم</span>
+              <span>تواصل معنا الآن</span>
             </a>
           </div>
 

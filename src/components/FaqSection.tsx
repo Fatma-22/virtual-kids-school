@@ -73,7 +73,7 @@ export const FaqSection: React.FC = () => {
           </div>
 
           <a
-            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('مرحباً أود الاستفسار عن دورات البرمجة وScratch في Virtual Kids School')}`}
+            href={`https://wa.me/201011991431?text=${encodeURIComponent('مرحباً أود الاستفسار عن دورات البرمجة وScratch في Virtual Kids School')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-extrabold text-sm rounded-xl shadow-lg flex items-center gap-2 shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"

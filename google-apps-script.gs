@@ -203,6 +203,9 @@ function doPost(e) {
       'deviceType',
       'studyMode',
       'preferredTime',
+      'schoolStage',
+      'schoolName',
+      'courseLanguage',
       'notes',
       'status',
       'siteName'
@@ -221,6 +224,9 @@ function doPost(e) {
       deviceType: ['devicetype', 'device_type', 'device'],
       studyMode: ['studymode', 'study_mode', 'mode', 'learningmode'],
       preferredTime: ['preferredtime', 'preferred_time', 'time'],
+      schoolStage: ['schoolstage', 'school_stage', 'stage', 'grade', 'gradelevel', 'class', 'schoollevel'],
+      schoolName: ['schoolname', 'school_name', 'school'],
+      courseLanguage: ['courselanguage', 'course_language', 'language', 'teachinglanguage', 'teaching_language'],
       notes: ['notes', 'note', 'message', 'additionalnotes', 'additional_notes'],
       status: ['status'],
       siteName: ['sitename', 'site_name', 'site']

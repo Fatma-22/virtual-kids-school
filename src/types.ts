@@ -29,6 +29,9 @@ export interface Booking {
   deviceType?: string;
   studyMode?: string;
   preferredTime: string;
+  schoolStage?: string;
+  schoolName?: string;
+  courseLanguage?: string;
   notes?: string;
   status: 'pending' | 'confirmed' | 'contacted';
   createdAt: string;

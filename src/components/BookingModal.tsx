@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { X, ExternalLink, CheckCircle, Sparkles, User, Users, Baby, Calendar, Phone, Mail, Clock, MessageSquare, ArrowLeft, Laptop } from 'lucide-react';
+import { X, ExternalLink, CheckCircle, Sparkles, User, Users, Baby, Calendar, Phone, Mail, Clock, MessageSquare, ArrowLeft, Laptop, School, BookOpen } from 'lucide-react';
 
 export const BookingModal: React.FC = () => {
   const { activeModal, selectedCourse, courses, closeModals, addBooking, siteConfig, showToast } = useApp();
@@ -14,6 +14,9 @@ export const BookingModal: React.FC = () => {
   const [deviceType, setDeviceType] = useState('لابتوب (Laptop)');
   const [studyMode, setStudyMode] = useState('ضمن مجموعة (Group)');
   const [preferredTime, setPreferredTime] = useState('مسائي (بعد المدرسة)');
+  const [schoolStage, setSchoolStage] = useState('');
+  const [schoolName, setSchoolName] = useState('');
+  const [courseLanguage, setCourseLanguage] = useState('عربي');
   const [notes, setNotes] = useState('');
 
   const [isSuccessState, setIsSuccessState] = useState(false);
@@ -30,6 +33,7 @@ export const BookingModal: React.FC = () => {
   if (activeModal !== 'booking') return null;
 
   const currentCourse = courses.find(c => c.id === courseId) || selectedCourse || courses[0];
+  const isIctCourse = currentCourse?.category === 'ict';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,6 +55,9 @@ export const BookingModal: React.FC = () => {
       deviceType,
       studyMode,
       preferredTime,
+      schoolStage: isIctCourse ? schoolStage.trim() || undefined : undefined,
+      schoolName: isIctCourse ? schoolName.trim() || undefined : undefined,
+      courseLanguage: isIctCourse ? courseLanguage.trim() || undefined : undefined,
       notes: notes.trim() || undefined,
     });
 
@@ -287,6 +294,66 @@ export const BookingModal: React.FC = () => {
                 </div>
 
               </div>
+
+              {isIctCourse && (
+                <div className="rounded-2xl border border-cyan-100 bg-cyan-50/70 p-4 space-y-4">
+                  <div className="flex items-center gap-2 text-sm font-black text-cyan-700">
+                    <BookOpen className="w-4 h-4" />
+                    <span>معلومات إضافية لمادة التكنولوجيا (ICT)</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                        <School className="w-3.5 h-3.5 text-cyan-600" />
+                        <span>الصف / المرحلة الدراسية</span>
+                      </label>
+                      <select
+                        value={schoolStage}
+                        onChange={(e) => setSchoolStage(e.target.value)}
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none text-slate-900 text-sm font-medium bg-white"
+                      >
+                        <option value="">اختر الصف</option>
+                        <option value="الصف الرابع الابتدائي">الصف الرابع الابتدائي</option>
+                        <option value="الصف الخامس الابتدائي">الصف الخامس الابتدائي</option>
+                        <option value="الصف السادس الابتدائي">الصف السادس الابتدائي</option>
+                        <option value="الصف الأول الإعدادي">الصف الأول الإعدادي</option>
+                        <option value="الصف الثاني الإعدادي">الصف الثاني الإعدادي</option>
+                        <option value="الصف الثالث الإعدادي">الصف الثالث الإعدادي</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                        <Users className="w-3.5 h-3.5 text-cyan-600" />
+                        <span>اسم المدرسة</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={schoolName}
+                        onChange={(e) => setSchoolName(e.target.value)}
+                        placeholder="مثال: مدرسة النور"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none text-slate-900 text-sm font-medium"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                        <BookOpen className="w-3.5 h-3.5 text-cyan-600" />
+                        <span>اللغة</span>
+                      </label>
+                      <select
+                        value={courseLanguage}
+                        onChange={(e) => setCourseLanguage(e.target.value)}
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none text-slate-900 text-sm font-medium bg-white"
+                      >
+                        <option value="عربي">عربي</option>
+                        <option value="لغات">لغات</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Additional Notes */}
               <div>

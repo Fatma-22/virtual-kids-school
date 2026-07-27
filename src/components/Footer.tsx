@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { GraduationCap, Heart, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { GraduationCap, Heart, MessageCircle, Phone } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { siteConfig } = useApp();
@@ -27,34 +27,23 @@ export const Footer: React.FC = () => {
               أكاديمية تعليمية متخصصة أونلاين لتقديم دورات تفاعلية وممتعة للأطفال في Scratch والذكاء الاصطناعي داخل بيئة آمنة ومشجعة.
             </p>
 
-            <div className="flex items-center gap-3">
-              {siteConfig.facebookUrl && (
-                <a
-                  href={siteConfig.facebookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600 transition-colors hover:bg-cyan-600 hover:text-white"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-              )}
-              {siteConfig.instagramUrl && (
-                <a
-                  href={siteConfig.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-50 text-pink-600 transition-colors hover:bg-pink-600 hover:text-white"
-                >
-                  <Instagram className="h-4 w-4" />
-                </a>
-              )}
+            <div className="flex flex-wrap items-center gap-3">
               <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}`}
+                href={`https://wa.me/20111991431`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-colors hover:bg-emerald-600 hover:text-white"
+                className="flex items-center gap-2 rounded-xl bg-emerald-50 px-3 py-2 text-emerald-700 transition-colors hover:bg-emerald-600 hover:text-white"
               >
                 <MessageCircle className="h-4 w-4" />
+                <span className="text-sm font-semibold">01011991431</span>
+              </a>
+              <a
+                href={`https://wa.me/20111991431`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600 transition-colors hover:bg-cyan-600 hover:text-white"
+              >
+                <Phone className="h-4 w-4" />
               </a>
             </div>
           </div>

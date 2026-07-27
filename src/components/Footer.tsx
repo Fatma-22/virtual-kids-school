@@ -27,10 +27,15 @@ export const Footer: React.FC = () => {
               أكاديمية تعليمية متخصصة أونلاين لتقديم دورات تفاعلية وممتعة للأطفال في Scratch والذكاء الاصطناعي داخل بيئة آمنة ومشجعة.
             </p>
 
-            <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-              <MessageCircle className="h-4 w-4 text-emerald-600" />
-              <span>تواصل مع فريق الدعم</span>
-            </div>
+            <a
+              href="https://wa.me/201011991431"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:bg-emerald-600 hover:text-white"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span>تحدث مع فريق الدعم</span>
+            </a>
           </div>
 
           {/* Quick Links 1 */}
